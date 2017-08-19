@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".TelaLogin"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="portrait"
@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".TelaCadastro"
+
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TelaInicial"
+
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
