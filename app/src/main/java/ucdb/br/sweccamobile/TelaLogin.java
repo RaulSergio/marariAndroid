@@ -95,17 +95,22 @@ public class TelaLogin extends AppCompatActivity {
         @Override
         protected void onPostExecute(String resultado) {
             //txtEmail.setText(resultado);
+            String[] dados = resultado.split(",");
+
             if (resultado.contains("login ok")) {
                 Intent abreInicio = new Intent(TelaLogin.this, TelaInicial.class);
+                abreInicio.putExtra("id", dados[1]);
+                abreInicio.putExtra("nome", dados[2]);
                 startActivity(abreInicio);
             } else {
                 Toast.makeText(getApplicationContext(), "Usuario ou senha incorretos!", Toast.LENGTH_LONG).show();
             }
         }
     }
-//    @Override
-//    protected void onPause(){
-//        super.onPause();
-//        finish();
-//    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
 }
