@@ -51,7 +51,7 @@ public class TelaLogin extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio!", Toast.LENGTH_LONG).show();
                     } else {
 
-                        url = "http://192.168.1.6:80/login/logar.php";
+                        url = "http://192.168.19.237:80/login/logar.php";
 
                         parametros = "email=" + email + "&senha=" + senha;
 

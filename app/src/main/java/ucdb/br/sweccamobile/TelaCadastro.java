@@ -60,7 +60,7 @@ public class TelaCadastro extends AppCompatActivity {
                     } else {
 
                         if (senha.equals(confirmaSenha)) {
-                            url = "http://192.168.1.6:80/login/registrar.php";
+                            url = "http://192.168.19.237:80/login/registrar.php";
 
                             parametros = "nome=" + nome + "&email=" + email + "&senha=" + senha + "&confirmaSenha=" + confirmaSenha;
 
@@ -87,7 +87,7 @@ public class TelaCadastro extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String resultado) {
-            txtNome.setText(resultado);
+            //txtNome.setText(resultado);
             if (resultado.contains("email_erro")) {
                 Toast.makeText(getApplicationContext(), "Já existe um usuário cadastrado para este e-mail!", Toast.LENGTH_LONG).show();
 
