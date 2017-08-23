@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TelaCadastro"
+            android:name=".TelaCadastroVendedor"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
         <activity

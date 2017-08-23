@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class TelaCadastro extends AppCompatActivity {
+public class TelaCadastroVendedor extends AppCompatActivity {
 
     EditText txtNome, txtEmail, txtSenha, txtConfirmaSenha;
     Button btnRegistrar, btnCancelar;
@@ -23,7 +23,7 @@ public class TelaCadastro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_cadastro);
+        setContentView(R.layout.activity_tela_cadastro_vendedor);
         getSupportActionBar().setTitle("Cadastrar Novo Usuário");
 
         txtNome = (EditText) findViewById(R.id.txtNomeCadastro);
@@ -60,11 +60,11 @@ public class TelaCadastro extends AppCompatActivity {
                     } else {
 
                         if (senha.equals(confirmaSenha)) {
-                            url = "http://192.168.19.237:80/login/registrar.php";
+                            url = "http://192.168.1.5:80/login/registrar.php";
 
                             parametros = "nome=" + nome + "&email=" + email + "&senha=" + senha + "&confirmaSenha=" + confirmaSenha;
 
-                            new TelaCadastro.SolicitaDados().execute(url);
+                            new TelaCadastroVendedor.SolicitaDados().execute(url);
                         } else {
                             Toast.makeText(getApplicationContext(), "As senhas não conferem!", Toast.LENGTH_LONG).show();
                         }
@@ -93,7 +93,7 @@ public class TelaCadastro extends AppCompatActivity {
 
             } else if (resultado.contains("registro_ok")) {
                 Toast.makeText(getApplicationContext(), "Registro concluído com sucesso!", Toast.LENGTH_LONG).show();
-                Intent abreLogin = new Intent(TelaCadastro.this, TelaLogin.class);
+                Intent abreLogin = new Intent(TelaCadastroVendedor.this, TelaLogin.class);
                 startActivity(abreLogin);
             } else {
                 Toast.makeText(getApplicationContext(), "Ocorreu um erro!", Toast.LENGTH_LONG).show();

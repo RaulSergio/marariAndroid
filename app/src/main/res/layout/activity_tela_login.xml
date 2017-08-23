@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEE9E9"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/txtSweccaHome"

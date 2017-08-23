@@ -10,10 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.IOException;
 
 public class TelaLogin extends AppCompatActivity {
 
@@ -51,7 +48,7 @@ public class TelaLogin extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio!", Toast.LENGTH_LONG).show();
                     } else {
 
-                        url = "http://192.168.19.237:80/login/logar.php";
+                        url = "http://192.168.1.5:80/login/logar.php";
 
                         parametros = "email=" + email + "&senha=" + senha;
 
@@ -74,7 +71,7 @@ public class TelaLogin extends AppCompatActivity {
         botaoRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent abreCadastro = new Intent(TelaLogin.this, TelaCadastro.class);
+                Intent abreCadastro = new Intent(TelaLogin.this, TelaCadastroVendedor.class);
                 startActivity(abreCadastro);
             }
 
