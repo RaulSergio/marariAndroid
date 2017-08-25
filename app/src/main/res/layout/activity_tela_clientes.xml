@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EEE9E9">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/txtNomeCliente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:text="Informe o cliente:"
+            android:textColor="#2f4f4f"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/txtInformaCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="112dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Digite parte do nome ou info de busca"
+            android:inputType="text"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btnBuscaCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtInformaCliente"
+            android:layout_marginTop="20dp"
+            android:background="#00cd00"
+            android:text="Buscar"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnCadastraCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnBuscaCliente"
+            android:layout_marginTop="10dp"
+            android:background="#1e90ff"
+            android:text="Cadastrar cliente"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+</ScrollView>

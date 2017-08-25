@@ -25,6 +25,7 @@ public class TelaCadastroVendedor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro_vendedor);
         getSupportActionBar().setTitle("Cadastrar Novo Usuário");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         txtNome = (EditText) findViewById(R.id.txtNomeCadastro);
         txtEmail = (EditText) findViewById(R.id.txtEmailCadastro);
@@ -60,7 +61,7 @@ public class TelaCadastroVendedor extends AppCompatActivity {
                     } else {
 
                         if (senha.equals(confirmaSenha)) {
-                            url = "http://192.168.1.5:80/login/registrar.php";
+                            url = "http://172.31.12.123:80/login/registrar.php";
 
                             parametros = "nome=" + nome + "&email=" + email + "&senha=" + senha + "&confirmaSenha=" + confirmaSenha;
 

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EEE9E9">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/txtSweccaAjuda"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:text="SWECCA Mobile"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtVersaoBeta"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txtSweccaAjuda"
+            android:layout_marginLeft="10dp"
+            android:text="Versão Beta 1.1"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/txtEntrarContato"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="80dp"
+            android:text="Você pode obter suporte entrando em contato:"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/txtContatoEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txtEntrarContato"
+            android:layout_marginLeft="10dp"
+            android:text="E-mail:"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/txtEntrarContato"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/txtContatoEmail"
+            android:layout_toRightOf="@+id/txtContatoEmail"
+            android:autoLink="email"
+            android:text="sacswecca@gmail.com"
+            android:textColor="@android:color/black"
+            android:textColorLink="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/txtTelefoneContato"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txtContatoEmail"
+            android:layout_marginLeft="10dp"
+            android:text="Telefone(WhatsApp):"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/txtTelefoneContato"
+            android:layout_toRightOf="@+id/txtTelefoneContato"
+            android:autoLink="phone"
+            android:text="067 9 9127 8664"
+            android:textColor="@android:color/black"
+            android:textColorLink="@color/colorPrimary" />
+
+
+    </RelativeLayout>
+</ScrollView>
