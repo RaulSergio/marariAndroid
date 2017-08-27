@@ -54,7 +54,9 @@
         <activity
             android:name=".TelaCadastroCliente"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"></activity>
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity android:name=".CarteiraDeProdutos" />
+        <activity android:name=".DetalhesProduto"></activity>
     </application>
 
 </manifest>

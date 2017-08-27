@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.04"
+        android:gravity="left"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtLinhaProduto1"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:text="Nome:"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtNomeProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aguardando Produto"
+            android:textColor="@android:color/black"
+            android:layout_alignBaseline="@+id/txtLinhaProduto1"
+            android:layout_alignBottom="@+id/txtLinhaProduto1"
+            android:layout_toRightOf="@+id/txtLinhaProduto2"
+            android:layout_toEndOf="@+id/txtLinhaProduto2" />
+
+        <TextView
+            android:id="@+id/txtLinhaProduto2"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/txtLinhaProduto1"
+            android:layout_margin="5dp"
+            android:text="Código:" />
+
+        <TextView
+            android:id="@+id/txtLinhaProduto3"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/txtLinhaProduto2"
+            android:layout_margin="5dp"
+            android:text="Estoque:" />
+
+        <TextView
+            android:id="@+id/txtCodigoProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/txtLinhaProduto2"
+            android:layout_toEndOf="@+id/txtLinhaProduto2"
+            android:layout_toRightOf="@+id/txtLinhaProduto2"
+            android:text="Aguardando Código" />
+
+        <TextView
+            android:id="@+id/txtEstoque"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/txtLinhaProduto3"
+            android:layout_alignBottom="@+id/txtLinhaProduto3"
+            android:layout_toEndOf="@+id/txtLinhaProduto3"
+            android:layout_toRightOf="@+id/txtLinhaProduto3"
+            android:text="Aguardando Estoque" />
+
+        <TextView
+            android:id="@+id/txtValor"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/txtEstoque"
+            android:layout_alignBottom="@+id/txtEstoque"
+            android:layout_toLeftOf="@+id/txtPreco"
+            android:layout_toStartOf="@+id/txtPreco"
+            android:text="Valor:"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/txtPreco"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/txtValor"
+            android:layout_alignBottom="@+id/txtValor"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:text="Aguardando preço"
+            android:textColor="@color/colorPrimary" />
+
+
+    </RelativeLayout>
+</LinearLayout>

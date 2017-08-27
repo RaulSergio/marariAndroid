@@ -19,7 +19,7 @@ public class CarteiraDeClientes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carteira_de_clientes);
-        getSupportActionBar().setTitle("Ajuda e suporte");
+        getSupportActionBar().setTitle("Carteira de clientes");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ListView lista = (ListView)findViewById(R.id.listClientes);
