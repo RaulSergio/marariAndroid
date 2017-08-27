@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class TelaPedidos extends AppCompatActivity {
+public class DetalhesCliente extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_pedidos);
-        getSupportActionBar().setTitle("Pedidos");
+        setContentView(R.layout.activity_detalhes_cliente);
+        getSupportActionBar().setTitle("Detalhes cliente");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override
@@ -24,7 +25,9 @@ public class TelaPedidos extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
 }
+
