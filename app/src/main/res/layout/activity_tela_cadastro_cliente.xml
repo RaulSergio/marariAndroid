@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EEE9E9">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/txtNomeCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome:" />
+
+        <EditText
+            android:id="@+id/edtTxtNomeCadastroCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtNomeCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Preenchimento obrigatório"
+            android:inputType="text"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/txtTelefoneCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtNomeCadastroCliente"
+            android:layout_marginTop="10dp"
+            android:text="Telefone:" />
+
+        <EditText
+            android:id="@+id/edtTxtTelefoneCadastroCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtTelefoneCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Preenchimento obrigatório"
+            android:inputType="text"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/txtCpfCnpjCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtTelefoneCadastroCliente"
+            android:layout_marginTop="10dp"
+            android:text="CPF/CNPJ:" />
+
+        <EditText
+            android:id="@+id/edtTxtCpfCnpjCadastroCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtCpfCnpjCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Preenchimento obrigatório"
+            android:inputType="text"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/txtEmailCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtCpfCnpjCadastroCliente"
+            android:layout_marginTop="10dp"
+            android:text="E-mail:" />
+
+        <EditText
+            android:id="@+id/edtTxtEmailCadastroCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtEmailCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Preenchimento obrigatório"
+            android:inputType="text"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/txtEnderecoCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtEmailCadastroCliente"
+            android:layout_marginTop="10dp"
+            android:text="Endereço:" />
+
+        <EditText
+            android:id="@+id/edtTxtEnderecoCadastroCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtEnderecoCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Preenchimento opcional"
+            android:inputType="text"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/txtNumeroCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtEnderecoCadastroCliente"
+            android:layout_marginTop="10dp"
+            android:text="Número:" />
+
+        <EditText
+            android:id="@+id/edtTxtNumeroCadastroCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtNumeroCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Preenchimento opcional"
+            android:inputType="text"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/txtCidadeCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtNumeroCadastroCliente"
+            android:layout_marginTop="10dp"
+            android:text="Cidade:" />
+
+        <EditText
+            android:id="@+id/edtTxtCidadeCadastroCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtCidadeCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Preenchimento opcional"
+            android:inputType="text"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/txtObsCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtCidadeCadastroCliente"
+            android:layout_marginTop="10dp"
+            android:text="Observações:" />
+
+        <EditText
+            android:id="@+id/edtTxtObsCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtObsCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Preenchimento opcional"
+            android:inputType="text"
+            android:padding="10dp"/>
+
+        <Button
+        android:id="@+id/btnCadastrarCliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtObsCadastro"
+        android:layout_marginTop="20dp"
+        android:background="#00cd00"
+        android:text="Cadastrar cliente"
+        android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+</ScrollView>

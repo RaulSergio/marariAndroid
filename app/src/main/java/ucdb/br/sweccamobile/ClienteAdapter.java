@@ -20,7 +20,7 @@ public class ClienteAdapter extends ArrayAdapter<Cliente> {
     private final ArrayList<Cliente> elementos;
 
     public ClienteAdapter(Context context, ArrayList<Cliente> elementos) {
-        super (context, R.layout.linha, elementos);
+        super (context, R.layout.linha_list_cliente, elementos);
         this.context = context;
         this.elementos = elementos;
     }
@@ -28,7 +28,7 @@ public class ClienteAdapter extends ArrayAdapter<Cliente> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView  = inflater.inflate(R.layout.linha, parent, false);
+        View rowView  = inflater.inflate(R.layout.linha_list_cliente, parent, false);
 
         TextView nomeCliente = (TextView) rowView.findViewById(R.id.txtLinhaCliente1);
         TextView telefoneCliente = (TextView) rowView.findViewById(R.id.txtLinhaCliente2);

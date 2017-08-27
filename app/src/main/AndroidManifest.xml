@@ -33,12 +33,28 @@
         <activity
             android:name=".TelaInicial"
             android:screenOrientation="portrait" />
-        <activity android:name=".TelaClientes" />
-        <activity android:name=".TelaProdutos" />
-        <activity android:name=".TelaPedidos" />
+        <activity
+            android:name=".TelaClientes"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".TelaProdutos"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".TelaPedidos"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity android:name=".TelaAjuda" />
-        <activity android:name=".CarteiraDeClientes" />
-        <activity android:name=".DetalhesCliente"></activity>
+        <activity
+            android:name=".CarteiraDeClientes"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity android:name=".DetalhesCliente" />
+        <activity
+            android:name=".TelaCadastroCliente"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"></activity>
     </application>
 
 </manifest>

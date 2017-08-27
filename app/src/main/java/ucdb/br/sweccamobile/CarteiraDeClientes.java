@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +19,8 @@ public class CarteiraDeClientes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carteira_de_clientes);
+        getSupportActionBar().setTitle("Ajuda e suporte");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ListView lista = (ListView)findViewById(R.id.listClientes);
         ArrayAdapter adapter = new ClienteAdapter(this, adicionarClientes());
@@ -25,15 +29,15 @@ public class CarteiraDeClientes extends AppCompatActivity {
 
     }
 
-//    public AdapterView.OnItemClickListener chamaAtividade() {
-//        return (new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> av, View v, int position, long id) {
-//                Intent it = new Intent(getBaseContext(), DetalhesCliente.class);
-//                startActivity(it);
-//            }
-//        });
-//    }
+    public AdapterView.OnItemClickListener chamaDetalhes() {
+        return (new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> av, View v, int position, long id) {
+                Intent it = new Intent(getBaseContext(), DetalhesCliente.class);
+                startActivity(it);
+            }
+        });
+    }
 
     private ArrayList<Cliente> adicionarClientes() {
         ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -43,9 +47,36 @@ public class CarteiraDeClientes extends AppCompatActivity {
         clientes.add(c);
         c = new Cliente("RINALDO ARAKAKI ROCHA", "67 9 9926 9629", "dinhoarakaki@gmail.com");
         clientes.add(c);
+        c = new Cliente("GIANCARLO ESPINOSA", "67 9 1234 5678", "gispinosa@gmail.com");
+        clientes.add(c);
+        c = new Cliente("JHONATAN GREY", "67 9 8765 4321", "jgrey@gmail.com");
+        clientes.add(c);
+        c = new Cliente("ALEX MONTGOMERY", "67 9 2234 8876", "amonty@gmail.com");
+        clientes.add(c);
+        c = new Cliente("GEBBER WARTZOLIT", "67 9 1236 4356", "gwaw@gmail.com");
+        clientes.add(c);
+        c = new Cliente("KAREV SWISS", "67 9 1534 7907", "swiss_krev@gmail.com");
+        clientes.add(c);
+        c = new Cliente("LAVSDALA MATCHIENKO", "67 9 1233 9987", "motherrussia@gmail.com");
+        clientes.add(c);
+        c = new Cliente("NULL POINTER EXCEPTION", "67 9 2134 8765", "npexc@gmail.com");
+        clientes.add(c);
 
         return (clientes);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }
 

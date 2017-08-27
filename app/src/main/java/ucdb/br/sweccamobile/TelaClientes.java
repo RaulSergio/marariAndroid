@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class TelaClientes extends AppCompatActivity {
 
-    Button botaoBuscaCliente;
+    Button botaoBuscaCliente, botaoCadastraCliente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +20,25 @@ public class TelaClientes extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         botaoBuscaCliente = (Button) findViewById(R.id.btnBuscaCliente);
+        botaoCadastraCliente = (Button) findViewById(R.id.btnCadastraCliente);
 
         botaoBuscaCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent abreClientes = new Intent(TelaClientes.this, CarteiraDeClientes.class);
                 startActivity(abreClientes);
+            }
+
+            public void OnClick(View v) {
+
+            }
+        });
+
+        botaoCadastraCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abreCadastroCliente = new Intent(TelaClientes.this, TelaCadastroCliente.class);
+                startActivity(abreCadastroCliente);
             }
 
             public void OnClick(View v) {
