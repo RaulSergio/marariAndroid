@@ -62,7 +62,7 @@ public class TelaCadastroCliente extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Alguns campos são obrigatórios!", Toast.LENGTH_LONG).show();
                     } else {
                         //criar a classe de cadastro de clientes
-                        url = "http://192.168.1.6:80/login/cadastroCliente.php";
+                        url = "http://192.168.1.8:80/login/cadastroCliente.php";
 
                         parametros = "nome=" + nome + "&telefone=" + telefone + "&cpfCnpj=" + cpfCnpj + "&email=" + email +
                                 "&endereco=" + endereco + "&numero=" + numero + "&cidade=" + cidade + "&obs=" + obs;

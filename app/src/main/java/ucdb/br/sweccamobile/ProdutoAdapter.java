@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -45,7 +46,10 @@ public class ProdutoAdapter extends ArrayAdapter<Produto> {
         String stringDouble = Double.toString(estProd);
         estoqueProduto.setText(stringDouble);
         valorProd = elementos.get(position).getValorProduto();
-        String stringDouble2 = Double.toString(estProd);
+        NumberFormat formato = NumberFormat.getInstance();
+        formato.setMaximumFractionDigits(2);
+        formato.setMinimumFractionDigits(2);
+        String stringDouble2 = formato.format(valorProd);
         valorProduto.setText(stringDouble2);
 
         return rowView;

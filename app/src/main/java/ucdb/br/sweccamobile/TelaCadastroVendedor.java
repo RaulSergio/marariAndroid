@@ -63,7 +63,7 @@ public class TelaCadastroVendedor extends AppCompatActivity {
                     } else {
 
                         if (senha.equals(confirmaSenha)) {
-                            url = "http://192.168.1.6:80/login/registrar.php";
+                            url = "http://192.168.1.8:80/login/registrar.php";
 
                             parametros = "nome=" + nome + "&email=" + email + "&senha=" + senha + "&confirmaSenha=" + confirmaSenha;
 

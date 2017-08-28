@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class CarteiraDeClientes extends AppCompatActivity {
 
@@ -22,7 +26,7 @@ public class CarteiraDeClientes extends AppCompatActivity {
         getSupportActionBar().setTitle("Carteira de clientes");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ListView lista = (ListView)findViewById(R.id.listClientes);
+        ListView lista = (ListView) findViewById(R.id.listClientes);
         ArrayAdapter adapter = new ClienteAdapter(this, adicionarClientes());
         lista.setAdapter(adapter);
 
@@ -62,6 +66,15 @@ public class CarteiraDeClientes extends AppCompatActivity {
         c = new Cliente("NULL POINTER EXCEPTION", "67 9 2134 8765", "npexc@gmail.com");
         clientes.add(c);
 
+
+        Collections.sort (clientes, new Comparator() {
+            public int compare(Object o1, Object o2) {
+                Cliente c1 = (Cliente) o1;
+                Cliente c2 = (Cliente) o2;
+                return c1.getNomeCliente().compareToIgnoreCase(c2.getNomeCliente());
+            }
+        });
+
         return (clientes);
 
     }
@@ -75,6 +88,7 @@ public class CarteiraDeClientes extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }

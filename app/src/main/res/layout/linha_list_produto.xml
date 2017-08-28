@@ -77,7 +77,7 @@
             android:layout_alignBottom="@+id/txtEstoque"
             android:layout_toLeftOf="@+id/txtPreco"
             android:layout_toStartOf="@+id/txtPreco"
-            android:text="Valor:"
+            android:text="Valor: R$"
             android:textColor="@color/colorPrimary" />
 
         <TextView
