@@ -1,10 +1,8 @@
 package ucdb.br.sweccamobile;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,9 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+
+import ucdb.br.sweccamobile.model.Cliente;
 
 public class CarteiraDeClientes extends AppCompatActivity {
 

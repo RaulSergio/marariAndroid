@@ -1,14 +1,20 @@
 package ucdb.br.sweccamobile;
 
 import android.content.Intent;
-import android.support.annotation.IntDef;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import static android.R.attr.button;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import ucdb.br.sweccamobile.inteface.IClientesRest;
+import ucdb.br.sweccamobile.model.Cliente;
 
 public class TelaInicial extends AppCompatActivity {
 
@@ -23,11 +29,11 @@ public class TelaInicial extends AppCompatActivity {
         getSupportActionBar().setTitle("Home");
 
 
-        nomeUsuario = getIntent().getExtras().getString("nome");
-        idUsuario = getIntent().getExtras().getString("id");
+//        nomeUsuario = getIntent().getExtras().getString("nome");
+//        idUsuario = getIntent().getExtras().getString("id");
 
-        nomeUser = (TextView)findViewById(R.id.txtUser);
-        idUser = (TextView)findViewById(R.id.txtId);
+        nomeUser = (TextView) findViewById(R.id.txtUser);
+        idUser = (TextView) findViewById(R.id.txtId);
         nomeUser.setText(nomeUsuario);
         idUser.setText(idUsuario);
         botaoClientes = (Button) findViewById(R.id.btnClientes);
@@ -54,39 +60,68 @@ public class TelaInicial extends AppCompatActivity {
                 Intent abreProdutos = new Intent(TelaInicial.this, TelaProdutos.class);
                 startActivity(abreProdutos);
             }
-
-            public void OnClick(View v) {
-
-            }
         });
 
         botaoPedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent abrePedidos = new Intent(TelaInicial.this, TelaPedidos.class);
-                startActivity(abrePedidos);
-            }
+                IClientesRest clientesRest = IClientesRest.retrofit.create(IClientesRest.class);
+                // Código para usar retrofit chamando 1 resposta
 
-            public void OnClick(View v) {
+//                final Call<UsuarioGitHub> call = githubUser.getUsuario("raulsergio");
+//                call.enqueue(new Callback<UsuarioGitHub>() {
+//                    @Override
+//                    public void onResponse(Call<UsuarioGitHub> call, Response<UsuarioGitHub> response) {
+//                        int code = response.code();
+//                        if (code == 200) {
+//                            UsuarioGitHub usuarioGitHub = response.body();
+//                            Toast.makeText(getBaseContext(), "Nome do usuário: " + usuarioGitHub.name, Toast.LENGTH_LONG).show();
+//                        } else {
+//                            Toast.makeText(getBaseContext(), "Falha: " + String.valueOf(code), Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<UsuarioGitHub> call, Throwable t) {
+//                        Toast.makeText(getBaseContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+//
+//                    }
+                final Call<List<Cliente>> call = clientesRest.getClientes();
+                call.enqueue(new Callback<List<Cliente>>() {
+                    @Override
+                    public void onResponse(Call<List<Cliente>> call, Response<List<Cliente>> response) {
+                        List<Cliente> listaClientes = response.body();
+                        for (Cliente cliente : listaClientes) {
+                            Log.d("TelaInicial", cliente.getNomeCliente());
+                        }
+                    }
 
+                    @Override
+                    public void onFailure(Call<List<Cliente>> call, Throwable t) {
+                    }
+
+
+//                Intent abrePedidos = new Intent(TelaInicial.this, TelaPedidos.class);
+//                startActivity(abrePedidos);
+
+                });
+
+
+                // botaoAtualiza ???
+
+                botaoAjuda.setOnClickListener(new View.OnClickListener()
+
+                {
+                    @Override
+                    public void onClick(View v) {
+                        Intent abreAjuda = new Intent(TelaInicial.this, TelaAjuda.class);
+                        startActivity(abreAjuda);
+                    }
+
+                });
             }
         });
-
-        // botaoAtualiza ???
-
-        botaoAjuda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent abreAjuda = new Intent(TelaInicial.this, TelaAjuda.class);
-                startActivity(abreAjuda);
-            }
-
-            public void OnClick(View v) {
-
-            }
-        });
-
-
-
     }
 }
+
+

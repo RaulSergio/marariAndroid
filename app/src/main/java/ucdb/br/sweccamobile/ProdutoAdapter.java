@@ -10,6 +10,8 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
+import ucdb.br.sweccamobile.model.Produto;
+
 /**
  * Created by drago on 27/08/2017.
  */

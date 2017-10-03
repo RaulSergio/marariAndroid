@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import ucdb.br.sweccamobile.model.Cliente;
+
 /**
  * Created by drago on 26/08/2017.
  */

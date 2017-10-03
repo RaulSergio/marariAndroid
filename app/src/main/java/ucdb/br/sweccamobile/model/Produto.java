@@ -1,4 +1,4 @@
-package ucdb.br.sweccamobile;
+package ucdb.br.sweccamobile.model;
 
 /**
  * Created by drago on 27/08/2017.
