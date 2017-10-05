@@ -14,13 +14,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import ucdb.br.sweccamobile.inteface.IUsuariosRest;
+import ucdb.br.sweccamobile.model.Usuario;
+
 public class TelaCadastroVendedor extends AppCompatActivity {
 
     EditText txtNome, txtEmail, txtSenha, txtConfirmaSenha;
     Button btnRegistrar, btnCancelar;
-
-    String url = "";
-    String parametros = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,62 +49,45 @@ public class TelaCadastroVendedor extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ConnectivityManager connectivityManager = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                final Usuario usuario = new Usuario();
+                usuario.setNome(txtNome.getText().toString());
+                usuario.setEmail(txtEmail.getText().toString());
+                usuario.setSenha(txtSenha.getText().toString());
+                String confirmaSenha = txtConfirmaSenha.getText().toString();
 
-                if (networkInfo != null && networkInfo.isConnected()) {
+                IUsuariosRest usuariosRest = IUsuariosRest.retrofit.create(IUsuariosRest.class);
+                final Call<Usuario> call = usuariosRest.cadastraUsuario(usuario);
 
-                    String nome = txtNome.getText().toString();
-                    String email = txtEmail.getText().toString();
-                    String senha = txtSenha.getText().toString();
-                    String confirmaSenha = txtConfirmaSenha.getText().toString();
+                if (usuario.getNome().isEmpty() || usuario.getEmail().isEmpty() || usuario.getSenha().isEmpty() || confirmaSenha.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio!", Toast.LENGTH_LONG).show();
+                } else {
 
+                    if (usuario.getSenha().equals(confirmaSenha)) {
+                        call.enqueue(new Callback<Usuario>() {
+                            @Override
+                            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                                int code = response.code();
+                                if (code == 200) {
+                                    Toast.makeText(getBaseContext(), "Usuário: " +usuario.getNome()+" cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getBaseContext(), "Erro:"+String.valueOf(code), Toast.LENGTH_SHORT).show();
 
-                    if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || confirmaSenha.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio!", Toast.LENGTH_LONG).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Usuario> call, Throwable t) {
+                                Toast.makeText(getBaseContext(), "Não foi possível fazer a conexão", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
                     } else {
-
-                        if (senha.equals(confirmaSenha)) {
-                            url = "http://192.168.1.8:80/login/registrar.php";
-
-                            parametros = "nome=" + nome + "&email=" + email + "&senha=" + senha + "&confirmaSenha=" + confirmaSenha;
-
-                            new TelaCadastroVendedor.SolicitaDados().execute(url);
-                        } else {
-                            Toast.makeText(getApplicationContext(), "As senhas não conferem!", Toast.LENGTH_LONG).show();
-                        }
+                        Toast.makeText(getApplicationContext(), "As senhas não conferem!", Toast.LENGTH_LONG).show();
                     }
 
-                } else {
-                    Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada!", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
-    }
-
-    private class SolicitaDados extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-
-            return Conexao.postDados(urls[0], parametros);
-        }
-
-        @Override
-        protected void onPostExecute(String resultado) {
-            //txtNome.setText(resultado);
-            if (resultado.contains("email_erro")) {
-                Toast.makeText(getApplicationContext(), "Já existe um usuário cadastrado para este e-mail!", Toast.LENGTH_LONG).show();
-
-            } else if (resultado.contains("registro_ok")) {
-                Toast.makeText(getApplicationContext(), "Registro concluído com sucesso!", Toast.LENGTH_LONG).show();
-                Intent abreLogin = new Intent(TelaCadastroVendedor.this, TelaLogin.class);
-                startActivity(abreLogin);
-            } else {
-                Toast.makeText(getApplicationContext(), "Ocorreu um erro!", Toast.LENGTH_LONG).show();
-            }
-        }
     }
 
     @Override
@@ -113,6 +99,7 @@ public class TelaCadastroVendedor extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }

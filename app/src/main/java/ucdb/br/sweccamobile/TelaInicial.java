@@ -29,13 +29,10 @@ public class TelaInicial extends AppCompatActivity {
         getSupportActionBar().setTitle("Home");
 
 
-//        nomeUsuario = getIntent().getExtras().getString("nome");
-//        idUsuario = getIntent().getExtras().getString("id");
+        nomeUsuario = getIntent().getExtras().getString("nome");
 
         nomeUser = (TextView) findViewById(R.id.txtUser);
-        idUser = (TextView) findViewById(R.id.txtId);
         nomeUser.setText(nomeUsuario);
-        idUser.setText(idUsuario);
         botaoClientes = (Button) findViewById(R.id.btnClientes);
         botaoProdutos = (Button) findViewById(R.id.btnProdutos);
         botaoPedidos = (Button) findViewById(R.id.btnPedido);

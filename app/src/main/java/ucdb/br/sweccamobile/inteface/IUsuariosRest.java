@@ -8,22 +8,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import ucdb.br.sweccamobile.model.Cliente;
+import ucdb.br.sweccamobile.model.Usuario;
 
 /**
- * Created by drago on 02/10/2017.
+ * Created by drago on 03/10/2017.
  */
 
-public interface IClientesRest {
+public interface IUsuariosRest {
+    @GET("usuarios/todos")
+    Call<List<Usuario>> getUsuarios();
 
-    @GET("clientes/todos")
-    Call<List<Cliente>> getClientes();
-
-    @POST("clientes/salvar")
-    Call<Cliente> cadastraCliente(@Body Cliente cliente);
+    @POST("usuarios/salvar")
+    Call<Usuario> cadastraUsuario(@Body Usuario usuario);
 
     public static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.13/")
+            .baseUrl("http://192.168.19.172:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 }

@@ -1,10 +1,7 @@
 package ucdb.br.sweccamobile;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import ucdb.br.sweccamobile.inteface.ILoginRest;
+import ucdb.br.sweccamobile.model.Usuario;
+
 public class TelaLogin extends AppCompatActivity {
 
     EditText txtEmail, txtSenha;
     Button botaoAcessar, botaoRegistrar;
-
-    String url = "";
-    String parametros = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,38 +34,33 @@ public class TelaLogin extends AppCompatActivity {
         botaoAcessar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConnectivityManager connectivityManager = (ConnectivityManager)
-                        getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                ILoginRest loginRest = ILoginRest.retrofit.create(ILoginRest.class);
+                final Call<Usuario> call = loginRest.login(txtEmail.getText().toString(), txtSenha.getText().toString());
 
-                if (networkInfo != null && networkInfo.isConnected()) {
-
-                    String email = txtEmail.getText().toString();
-                    String senha = txtSenha.getText().toString();
-
-
-                    if (email.isEmpty() || senha.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio!", Toast.LENGTH_LONG).show();
-                    } else {
-
-                        url = "http://192.168.1.8:80/login/logar.php";
-
-                        parametros = "email=" + email + "&senha=" + senha;
-
-                        new SolicitaDados().execute(url);
-
-                    }
-
+                if (txtEmail==null || txtSenha==null) {
+                    Toast.makeText(getApplicationContext(), "Nenhum campo pode estar vazio!", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Nenhuma conexão foi detectada!", Toast.LENGTH_LONG).show();
+                    call.enqueue(new Callback<Usuario>() {
+                        @Override
+                        public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                            int code = response.code();
+                            if (code == 200) {
+                                Intent abreInicio = new Intent(TelaLogin.this, TelaInicial.class);
+                                abreInicio.putExtra("nome", response.body().getNome());
+                                startActivity(abreInicio);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Usuario ou senha incorretos!", Toast.LENGTH_LONG).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Usuario> call, Throwable t) {
+
+                        }
+                    });
                 }
-
-
             }
 
-            public void OnClick(View v) {
-
-            }
         });
 
         botaoRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -80,29 +75,6 @@ public class TelaLogin extends AppCompatActivity {
             }
         });
 
-    }
-
-    private class SolicitaDados extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-
-            return Conexao.postDados(urls[0], parametros);
-        }
-
-        @Override
-        protected void onPostExecute(String resultado) {
-            //txtEmail.setText(resultado);
-            String[] dados = resultado.split(",");
-
-            if (resultado.contains("login ok")) {
-                Intent abreInicio = new Intent(TelaLogin.this, TelaInicial.class);
-                abreInicio.putExtra("id", dados[1]);
-                abreInicio.putExtra("nome", dados[2]);
-                startActivity(abreInicio);
-            } else {
-                Toast.makeText(getApplicationContext(), "Usuario ou senha incorretos!", Toast.LENGTH_LONG).show();
-            }
-        }
     }
 
     @Override
