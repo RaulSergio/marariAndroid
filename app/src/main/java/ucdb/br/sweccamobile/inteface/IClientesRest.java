@@ -23,7 +23,7 @@ public interface IClientesRest {
     Call<Cliente> cadastraCliente(@Body Cliente cliente);
 
     public static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.13/")
+            .baseUrl("http://192.168.1.2:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 }

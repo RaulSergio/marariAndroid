@@ -18,8 +18,8 @@ import ucdb.br.sweccamobile.model.Cliente;
 
 public class TelaInicial extends AppCompatActivity {
 
-    TextView nomeUser, idUser;
-    String nomeUsuario, idUsuario;
+    TextView nomeUser, perfilUser;
+    String nomeUsuario, perfilUsuario;
     Button botaoClientes, botaoProdutos, botaoPedidos, botaoAtualiza, botaoAjuda;
 
     @Override
@@ -30,9 +30,12 @@ public class TelaInicial extends AppCompatActivity {
 
 
         nomeUsuario = getIntent().getExtras().getString("nome");
+        perfilUsuario = getIntent().getExtras().getString("id");
 
         nomeUser = (TextView) findViewById(R.id.txtUser);
+        perfilUser = (TextView) findViewById(R.id.txtPerfil);
         nomeUser.setText(nomeUsuario);
+        perfilUser.setText(perfilUsuario);
         botaoClientes = (Button) findViewById(R.id.btnClientes);
         botaoProdutos = (Button) findViewById(R.id.btnProdutos);
         botaoPedidos = (Button) findViewById(R.id.btnPedido);
@@ -42,13 +45,10 @@ public class TelaInicial extends AppCompatActivity {
         botaoClientes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent abreClientes = new Intent(TelaInicial.this, TelaClientes.class);
+                Intent abreClientes = new Intent(TelaInicial.this, ListaDeUsuarios.class);
                 startActivity(abreClientes);
             }
 
-            public void OnClick(View v) {
-
-            }
         });
 
         botaoProdutos.setOnClickListener(new View.OnClickListener() {

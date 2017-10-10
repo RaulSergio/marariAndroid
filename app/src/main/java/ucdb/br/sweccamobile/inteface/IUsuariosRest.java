@@ -22,7 +22,7 @@ public interface IUsuariosRest {
     Call<Usuario> cadastraUsuario(@Body Usuario usuario);
 
     public static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.19.172:8080/")
+            .baseUrl("http://192.168.1.2:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 }

@@ -20,7 +20,7 @@ public interface ILoginRest {
     Call<Usuario> login(@Field("email") String email, @Field("senha") String senha);
 
     public static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.19.172:8080/")
+            .baseUrl("http://192.168.1.2:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

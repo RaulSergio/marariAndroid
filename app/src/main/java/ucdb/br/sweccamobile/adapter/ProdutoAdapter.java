@@ -1,4 +1,4 @@
-package ucdb.br.sweccamobile;
+package ucdb.br.sweccamobile.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
+import ucdb.br.sweccamobile.R;
 import ucdb.br.sweccamobile.model.Produto;
 
 /**
@@ -30,7 +31,8 @@ public class ProdutoAdapter extends ArrayAdapter<Produto> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView  = inflater.inflate(R.layout.linha_list_produto, parent, false);
 
         TextView txtnomeProduto = (TextView) rowView.findViewById(R.id.txtLinhaProduto1);

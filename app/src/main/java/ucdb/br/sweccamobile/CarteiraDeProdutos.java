@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import ucdb.br.sweccamobile.adapter.ProdutoAdapter;
 import ucdb.br.sweccamobile.model.Produto;
 
 public class CarteiraDeProdutos extends AppCompatActivity {

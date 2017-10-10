@@ -47,6 +47,7 @@ public class TelaLogin extends AppCompatActivity {
                             if (code == 200) {
                                 Intent abreInicio = new Intent(TelaLogin.this, TelaInicial.class);
                                 abreInicio.putExtra("nome", response.body().getNome());
+                                abreInicio.putExtra("id", response.body().getId().toString());
                                 startActivity(abreInicio);
                             } else {
                                 Toast.makeText(getApplicationContext(), "Usuario ou senha incorretos!", Toast.LENGTH_LONG).show();

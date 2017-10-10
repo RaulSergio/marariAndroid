@@ -12,9 +12,19 @@
         android:padding="20dp">
 
         <TextView
+            android:id="@+id/txtTituloCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cadastro de Clientes"
+            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
             android:id="@+id/txtNomeCadastroCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/txtTituloCadastroCliente"
             android:text="Nome:" />
 
         <EditText
@@ -98,20 +108,20 @@
             android:padding="10dp" />
 
         <TextView
-            android:id="@+id/txtEnderecoCadastroCliente"
+            android:id="@+id/txtRuaCadastroCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtTxtEmailCadastroCliente"
             android:layout_marginTop="10dp"
-            android:text="Endereço:" />
+            android:text="Rua:" />
 
         <EditText
-            android:id="@+id/edtTxtEnderecoCadastroCliente"
+            android:id="@+id/edtTxtRuaCadastroCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/txtEnderecoCadastroCliente"
+            android:layout_below="@+id/txtRuaCadastroCliente"
             android:layout_marginTop="5dp"
             android:background="@drawable/modelo_edit"
             android:ems="10"
@@ -123,7 +133,7 @@
             android:id="@+id/txtNumeroCadastroCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtTxtEnderecoCadastroCliente"
+            android:layout_below="@+id/edtTxtRuaCadastroCliente"
             android:layout_marginTop="10dp"
             android:text="Número:" />
 
@@ -142,10 +152,32 @@
             android:padding="10dp"/>
 
         <TextView
-            android:id="@+id/txtCidadeCadastroCliente"
+            android:id="@+id/txtCepCadastroCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtTxtNumeroCadastroCliente"
+            android:layout_marginTop="10dp"
+            android:text="CEP:" />
+
+        <EditText
+            android:id="@+id/edtTxtCepCadastroCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtCepCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="Preenchimento opcional"
+            android:inputType="number"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/txtCidadeCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtCepCadastroCliente"
             android:layout_marginTop="10dp"
             android:text="Cidade:" />
 
@@ -164,10 +196,32 @@
             android:padding="10dp"/>
 
         <TextView
-            android:id="@+id/txtObsCadastroCliente"
+            android:id="@+id/txtEstadoCadastroCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtTxtCidadeCadastroCliente"
+            android:layout_marginTop="10dp"
+            android:text="Estado:" />
+
+        <EditText
+            android:id="@+id/edtTxtEstadoCadastroCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtEstadoCadastroCliente"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/modelo_edit"
+            android:ems="10"
+            android:hint="(Sigla) Preenchimento opcional"
+            android:inputType="text"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/txtObsCadastroCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtEstadoCadastroCliente"
             android:layout_marginTop="10dp"
             android:text="Observações:" />
 

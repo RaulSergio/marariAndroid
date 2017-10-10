@@ -18,7 +18,7 @@ public interface IProdutosRest {
     Call<List<Produto>> getProdutos();
 
     public static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.13/")
+            .baseUrl("http://192.168.1.2:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 }

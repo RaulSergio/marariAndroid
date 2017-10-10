@@ -42,7 +42,6 @@
         <activity
             android:name=".TelaInicial"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".TelaClientes"
             android:screenOrientation="portrait"
@@ -54,6 +53,7 @@
 
         <intent-filter>
             <action android:name="com.google.zxing.client.android.SCAN" />
+
             <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
 
@@ -72,7 +72,8 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity android:name=".CarteiraDeProdutos" />
-        <activity android:name=".DetalhesProduto"></activity>
+        <activity android:name=".DetalhesProduto" />
+        <activity android:name=".ListaDeUsuarios"></activity>
     </application>
 
 </manifest>

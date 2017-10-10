@@ -1,4 +1,4 @@
-package ucdb.br.sweccamobile;
+package ucdb.br.sweccamobile.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import ucdb.br.sweccamobile.R;
 import ucdb.br.sweccamobile.model.Cliente;
 
 /**
